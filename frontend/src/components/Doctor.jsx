@@ -6,7 +6,7 @@ function Doctor() {
     const { doctors, fetchDoctors } = useAppStore();
     useEffect(() => {
         fetchDoctors();
-    }, [])
+    }, [fetchDoctors])
     return (
         <div>
             <h2>Doctors</h2>

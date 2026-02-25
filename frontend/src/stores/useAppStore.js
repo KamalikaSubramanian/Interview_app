@@ -1,21 +1,30 @@
 import { create } from "zustand";
-import API from "../api/axios";
+import { API_BASE } from "../../config.js";
+import axios from 'axios';
 
 export const useAppStore = create((set) => ({
   doctors: [],
   appointments: [],
 
-  fetchDoctors: async () => {
-    const { data } = await API.get("/doctors");
+fetchDoctors: async () => {
+  try {
+    const { data } = await axios.get(`${API_BASE}/doctors`);
     set({ doctors: data.data });
-  },
+  } catch (err) {
+    console.error("Failed to fetch doctors:", err);
+  }
+},
 
-  fetchAppointments: async () => {
-    const { data } = await API.get("/appointments");
+fetchAppointments: async () => {
+  try {
+    const { data } = await axios.get(`${API_BASE}/appointments`);
     set({ appointments: data.data });
-  },
+  } catch (err) {
+    console.error("Failed to fetch appointments:", err);
+  }
+},
 
   bookAppointment: async (payload) => {
-    return await API.post("/appointments", payload);
+    return await API.post(`${API_BASE}/appointments`, payload);
   },
 }));
