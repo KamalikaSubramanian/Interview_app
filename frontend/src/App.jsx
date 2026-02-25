@@ -43,7 +43,6 @@ function App() {
           <BookingForm />
         </div>
 
-        {/* Card 3 - Appointments */}
         <div
           style={{
             flex: 1,
