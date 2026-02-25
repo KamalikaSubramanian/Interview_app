@@ -16,7 +16,7 @@ app.use(
   cors({
     origin: function (origin, callback) {
       if (!origin || allowedOrigins.includes(origin)) {
-        callback(null,origin);
+        callback(null,true);
       } else {
         console.log(" Blocked by CORS:", origin);
         callback(new Error("Not allowed by CORS"));
@@ -36,7 +36,3 @@ connectDB()
         })
     })
     .catch((err)=>console.log(err))
-
-// textGET  /api/doctors          - List all doctors with availabilityPOST /api/appointments     - Book appointment (patient name, doctor ID, date)GET  /api/appointments     - List all booked appointments
-
-// jsximport React from 'react';import axios from 'axios';import './App.css';function App() {  return (    <div className="App">      <h1>Telemedicine - Book Appointment</h1>      {/* TODO: Doctors list, booking form, appointments list */}    </div>  );}export default App;
