@@ -25,6 +25,6 @@ fetchAppointments: async () => {
 },
 
   bookAppointment: async (payload) => {
-    return await API.post(`${API_BASE}/api/appointments`, payload);
+    return await axios.post(`${API_BASE}/api/appointments`, payload);
   },
 }));
