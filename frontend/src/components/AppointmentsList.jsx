@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { FaBookMedical } from "react-icons/fa";
 import { useAppStore } from "../stores/useAppStore.js";
 
 function AppointmentsList() {
@@ -10,7 +11,9 @@ function AppointmentsList() {
 
   return (
     <div>
-      <h2>Appointments</h2>
+      <h2 style={{ color: "#0c4a6e" }}>
+        <FaBookMedical /> Appointments
+      </h2>
 
       {appointments.length === 0 ? (
         <p>No appointments booked</p>

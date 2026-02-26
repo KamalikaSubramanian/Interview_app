@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { FaWpforms } from "react-icons/fa";
 import { useAppStore } from "../stores/useAppStore.js";
 
 function BookingForm() {
@@ -28,7 +29,6 @@ function BookingForm() {
       });
 
       alert("Appointment Booked Successfully");
-
       await fetchAppointments();
 
       setPatientName("");
@@ -41,7 +41,9 @@ function BookingForm() {
 
   return (
     <div>
-      <h2>Book Appointment</h2>
+      <h2 style={{ color: "#0c4a6e" }}>
+        <FaWpforms /> Book Appointment
+      </h2>
 
       <form onSubmit={handleSubmit}>
         <input
@@ -49,6 +51,7 @@ function BookingForm() {
           placeholder="Patient Name"
           value={patientName}
           onChange={(e) => setPatientName(e.target.value)}
+          style={{ width: "100%", padding: "8px" }}
         />
 
         <br /><br />
@@ -56,6 +59,7 @@ function BookingForm() {
         <select
           value={selectedDoctor}
           onChange={(e) => setSelectedDoctor(e.target.value)}
+          style={{ width: "100%", padding: "8px" }}
         >
           <option value="">Select Doctor</option>
           {doctors.map((doc) => (
@@ -72,6 +76,7 @@ function BookingForm() {
             <select
               value={selectedSlot}
               onChange={(e) => setSelectedSlot(e.target.value)}
+              style={{ width: "100%", padding: "8px" }}
             >
               <option value="">Select Slot</option>
               {selectedDoctorData.availableSlots.map((slot) => (
@@ -85,7 +90,20 @@ function BookingForm() {
           </>
         )}
 
-        <button type="submit">Book</button>
+        <button
+          type="submit"
+          style={{
+            width: "100%",
+            padding: "10px",
+            backgroundColor: "#0369a1",
+            color: "white",
+            border: "none",
+            borderRadius: "6px",
+            cursor: "pointer"
+          }}
+        >
+          Book
+        </button>
       </form>
     </div>
   );
